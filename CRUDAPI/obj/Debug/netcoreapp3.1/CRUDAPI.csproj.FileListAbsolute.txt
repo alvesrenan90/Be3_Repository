@@ -1,0 +1,6 @@
+C:\Users\RENAN\Source\Repos\CRUDAngularWebAPI\CRUDAPI\obj\Debug\netcoreapp3.1\CRUDAPI.csproj.AssemblyReference.cache
+C:\Users\RENAN\Source\Repos\CRUDAngularWebAPI\CRUDAPI\obj\Debug\netcoreapp3.1\CRUDAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\RENAN\Source\Repos\CRUDAngularWebAPI\CRUDAPI\obj\Debug\netcoreapp3.1\CRUDAPI.AssemblyInfoInputs.cache
+C:\Users\RENAN\Source\Repos\CRUDAngularWebAPI\CRUDAPI\obj\Debug\netcoreapp3.1\CRUDAPI.AssemblyInfo.cs
+C:\Users\RENAN\Source\Repos\CRUDAngularWebAPI\CRUDAPI\obj\Debug\netcoreapp3.1\CRUDAPI.csproj.CoreCompileInputs.cache
+C:\Users\RENAN\Source\Repos\CRUDAngularWebAPI\CRUDAPI\obj\Debug\netcoreapp3.1\CRUDAPI.MvcApplicationPartsAssemblyInfo.cache

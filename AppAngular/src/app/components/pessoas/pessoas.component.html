@@ -1,0 +1,187 @@
+<div class="container p-5" *ngIf="visibilidadeTabela">
+  <div class="border boder-light rounded p-5">
+    <div>
+      <button type="button" class="btn btn-sm btn-secondary" (click)="ExibirFormularioCadastro()">
+        Nova Pessoa
+      </button>
+    </div>
+
+    <hr />
+
+    <table class="table table-striped table-hover table-sm" *ngIf="pessoas">
+      <tr class="thead-light">
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Data Nascimento</th>
+        <th>Gênero</th>
+        <th>CPF</th>
+        <th>RG</th>
+        <th>UF/RG</th>
+        <th>E-mail</th>
+        <th>Celular</th>
+        <th>Telefone fixo</th>
+        <th>Convênio</th>
+        <th>Carteirinha Convênio</th>
+        <th>Celular</th>
+        <th>validade Carteirinha</th>
+        <th>Ações</th>
+      </tr>
+
+      <tr *ngFor="let pessoa of pessoas">
+        <td>{{ pessoa.nome }}</td>
+        <td>{{ pessoa.sobrenome }}</td>
+        <td>{{ pessoa.dataNascimento }}</td>
+        <td>{{ pessoa.genero }}</td>
+
+        <td>{{ pessoa.cpf }}</td>
+        <td>{{ pessoa.rg }}</td>
+        <td>{{ pessoa.ufrg }}</td>
+        <td>{{ pessoa.email }}</td>
+
+        <td>{{ pessoa.celular }}</td>
+        <td>{{ pessoa.telefoneFixo }}</td>
+        <td>{{ pessoa.convenio }}</td>
+        <td>{{ pessoa.carteirinhaConvenio }}</td>
+        <td>{{ pessoa.validadeCarteirinha }}</td>
+        <td>
+          <button type="button" class="btn btn-sm btn-outline-info" (click)="ExibirFormularioAtualizacao(pessoa.pessoaId)">
+            Atualizar
+          </button>|
+          
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="container p-5" *ngIf="visibilidadeFormulario">
+  <div class="row">
+    <div class="col-6 border boder-light rounded p-5 shadow" *ngIf="formulario">
+      <h6>{{ tituloFormulario }}</h6>
+      <hr />
+
+      <form [formGroup]="formulario" (ngSubmit)="EnviarFormulario()">
+        <div class="form-group">
+          <label>Nome</label>
+          <input type="text"
+                 class="form-control form-control-sm"
+                 formControlName="nome" />
+        </div>
+
+        <div class="form-group">
+          <label>Sobrenome</label>
+          <input type="text"
+                 class="form-control form-control-sm"
+                 formControlName="sobrenome" />
+        </div>
+
+        <div class="form-group">
+          <label>Data Nascimento</label>
+          <input type="text"
+                 class="form-control form-control-sm"
+                 formControlName="dataNascimento" />
+        </div>
+
+        <div class="form-group">
+          <label>Gênero</label>
+          <input type="text"
+                 class="form-control form-control-sm"
+                 formControlName="genero" />
+        </div>
+
+        <div class="form-group">
+          <label>CPF</label>
+          <input type="text"
+                 class="form-control form-control-sm"
+                 formControlName="cpf" />
+        </div>
+
+        <div class="form-group">
+          <label>RG</label>
+          <input type="text"
+                 class="form-control form-control-sm"
+                 formControlName="rg" />
+        </div>
+
+        <div class="form-group">
+          <label>UF/RG</label>
+          <input type="text"
+                 class="form-control form-control-sm"
+                 formControlName="ufrg" />
+        </div>
+
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="text"
+                 class="form-control form-control-sm"
+                 formControlName="email" />
+        </div>
+
+        <div class="form-group">
+          <label>Celular</label>
+          <input type="text"
+                 class="form-control form-control-sm"
+                 formControlName="celular" />
+        </div>
+
+        <div class="form-group">
+          <label>Telefone fixo</label>
+          <input type="text"
+                 class="form-control form-control-sm"
+                 formControlName="telefoneFixo" />
+        </div>
+
+        <div class="form-group">
+          <label>Convênio</label>
+          <input type="text"
+                 class="form-control form-control-sm"
+                 formControlName="convenio" />
+        </div>
+
+        <div class="form-group">
+          <label>Carteirinha Convênio</label>
+          <input type="text"
+                 class="form-control form-control-sm"
+                 formControlName="carteirinhaConvenio" />
+        </div>
+
+        <div class="form-group">
+          <label>Validade Carteirinha</label>
+          <input type="text"
+                 class="form-control form-control-sm"
+                 formControlName="validadeCarteirinha" />
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div>
+              <button type="submit" class="btn btn-sm btn-outline-secondary">
+                Salvar
+              </button>
+            </div>
+            <div class="pl-1">
+              <button type="button" class="btn btn-sm btn-light" (click)="Voltar()">Voltar</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<ng-template #conteudoModal>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Confirmação de Exclusão</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Prosseguir com a exclusão do(a) {{nomePessoa}}
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modalRef.hide()">Não</button>
+        <button type="button" class="btn btn-outline-danger" (click)="ExcluirPessoa(pessoaId)">Sim</button>
+    </div>
+  </ng-template>
